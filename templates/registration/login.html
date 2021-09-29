@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Bright Ideas{% endblock title %}
+{% block header %}
+<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <h2 class="col-8 ms-5 text-light">Bright Ideas</h2>
+    <div class="text-end"> 
+      <a href="{% url 'index' %}" class="text-light" style="
+    margin-right: 100px;">Back</a>
+    </div>
+</div>
+{% endblock header %}
+{% block content %}
+    <h2>Login</h2>
+        <form action="" method="POST" class="container border border-2 p-4">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Enviar</button>
+        </form>
+            <p>No tines cuenta ? Registrate <a href="{% url 'registro' %}">Aqui</a></p>
+            
+
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Bright Ideas{% endblock title %}
+{% block header %}
+<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <h2 class="col-8 ms-5 text-light">Bright Ideas</h2>
+    <div class="text-end"> 
+      <a href="{% url 'logout' %}" class="text-light" style="
+    margin-right: 100px;">logout</a>
+    <a href="{% url 'usuarios' %}" class="text-light" style="
+    margin-right: 100px;">Usuarios</a>
+    </div>
+</div>
+{% endblock header %}
+{% block content %}
+<h1>Ideas</h1>
+  <p>Quieres Crear una nueva idea ? haz click <a href="{% url 'crearidea' %}">Aqui</a></p>
+
+<div class="col-lg-5">
+  <h2>Todas las Ideas</h2>
+  {% if object_list %}
+  <dl>
+  {% for ideas in object_list %}
+  <dt>{{ ideas.title }}</dt>
+  <dd class="ms-2">{{ ideas.desc }}</dd>
+  <dd class="ms-2">(Added by {{ideas.uploaded_by.first_name}} {{ideas.uploaded_by.last_name}})</dd>
+  {% if user in book.users_who_like.all %}
+  <dd class="ms-2">this is one of your favorites</dd>
+  {% else %}
+  {% endif %}
+  {% endfor %}
+  </dl>
+  {% endif %}
+</div>
+                
+{% endblock content %}

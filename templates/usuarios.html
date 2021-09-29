@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Bright Ideas{% endblock title %}
+{% block header %}
+<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <h2 class="col-8 ms-5 text-light">Bright Ideas</h2>
+    <div class="text-end"> 
+      <a href="{% url 'logout' %}" class="text-light" style="
+    margin-right: 100px;">logout</a>
+    <a href="{% url 'dashboard' %}" class="text-light" style="
+    margin-right: 100px;">Dashboard</a>
+    </div>
+</div>
+{% endblock header %}
+{% block content %}
+<h1>Panel de usuarios</h1>
+<div class="border m-2 p-2">
+    <table class="table">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>updated at</th>
+            <th>Actions</th>
+        </tr>
+        {% if object_list %}
+        {% for usuario in object_list %}
+        <tr>
+            <td>{{ usuario.first_name }}</td>
+            <td>{{ usuario.last_name }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.updated_at }}</td>
+            <td><a href="{% url 'detalles' pk=usuario.id %}">View</a> | <a href="{% url 'actulizar' pk=usuario.id %}">Edit</a> | <a href="{% url 'eliminar' pk=usuario.id %}">Remove</a></td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+      <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; Primero</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Siguente</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Anterior &raquo;</a>
+            {% endif %}
+        </span>
+      </div>
+</div>
+
+
+{% endblock content %}

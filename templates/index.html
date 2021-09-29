@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Bright Ideas{% endblock title %}
+{% block header %}
+<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <h2 class="col-8 ms-5 text-light">Bright Ideas</h2>
+    <div class="text-end"> 
+      <a href="{% url 'dashboard' %}" class="text-light" style="
+      margin-right: 100px;">Dashboard</a>
+      <a href="{% url 'login' %}" class="text-light" style="
+    margin-right: 100px;">Login</a>
+    </div>
+</div>
+{% endblock header %}
+{% block content %}
+    <h2>Bienvenido a la plataforma para la generacion de ideas</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eleifend, ante et euismod rutrum, arcu purus ultricies ex, non congue tellus erat non nibh. Ut faucibus nunc ac pellentesque ornare. Nam enim libero, dictum et iaculis et, congue ac quam. Duis efficitur eget tellus fringilla facilisis. Aenean sit amet lectus maximus, lobortis nibh semper, faucibus est. Fusce at dictum diam, ac cursus velit. Quisque in fringilla mi, quis rhoncus lectus. Nulla id lectus sed massa aliquam tincidunt. Duis in imperdiet ligula. Integer faucibus, leo ac elementum eleifend, nulla est sollicitudin velit, sit amet ullamcorper quam enim et nisi. Mauris eros dui, placerat ac diam nec, blandit hendrerit magna.
+
+Quisque enim massa, laoreet non posuere nec, accumsan ut lacus. Fusce sit amet commodo augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus gravida dolor magna, vel consectetur orci accumsan vel. Donec et mattis ex. Phasellus id nulla venenatis, aliquet tellus non, pellentesque enim. Vivamus ipsum erat, egestas a condimentum in, euismod nec eros. Morbi vestibulum feugiat scelerisque. Pellentesque eget elit sit amet ligula dapibus finibus. Fusce ultricies sapien libero, et feugiat leo fringilla eget. Fusce tincidunt aliquet elit, vitae tristique nibh luctus ac. Praesent scelerisque nunc sed nisi tristique gravida. Ut justo risus, blandit nec sodales et, volutpat eget arcu. Sed vel mi consectetur, rutrum justo ac, cursus neque. Donec et turpis neque.</p>
+<img src="https://picsum.photos/500/400" class="rounded mx-auto d-block p-5" alt="">
+{% endblock content %}

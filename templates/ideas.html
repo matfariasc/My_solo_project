@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Bright Ideas{% endblock title %}
+{% block header %}
+<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <h2 class="col-8 ms-5 text-light">Bright Ideas</h2>
+    <div class="text-end"> 
+      <a href="{% url 'logout' %}" class="text-light" style="
+    margin-right: 100px;">logout</a>
+    <a href="{% url 'usuarios' %}" class="text-light" style="
+    margin-right: 100px;">Usuarios</a>
+    </div>
+</div>
+{% endblock header %}
+{% block content %}
+<h1>Crear una nueva Idea</h1>
+  <form action="" method="POST" class="container border border-2 p-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Crear</button>
+  </form>
+{% endblock content %}
